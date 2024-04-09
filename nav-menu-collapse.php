@@ -3,12 +3,12 @@
  * Plugin Name: Nav Menu Collapse
  * Plugin URI:  https://wordpress.org/plugins/nav-menu-collapse/
  * Description: Adds functionality to collapse and expand nav menus within the WordPress admin.
- * Version:     2.1.3
+ * Version:     2.1.4
  * Author:      Robert Noakes
  * Author URI:  https://robertnoakes.com/
  * Text Domain: nav-menu-collapse
  * Domain Path: /languages/
- * Copyright:   (c) 2018-2023 Robert Noakes (mr@robertnoakes.com)
+ * Copyright:   (c) 2018-2024 Robert Noakes (mr@robertnoakes.com)
  * License:     GNU General Public License v3.0
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  */
