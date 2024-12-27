@@ -17,6 +17,7 @@ if (!defined('ABSPATH'))
  * Class used to implement the base plugin functionality.
  *
  * @since 2.0.0
+ * @since 2.1.6 Removed plugins loaded function.
  *
  * @uses Nav_Menu_Collapse_Wrapper
  */
@@ -105,6 +106,7 @@ final class Nav_Menu_Collapse extends Nav_Menu_Collapse_Wrapper
 	 * Constructor function.
 	 *
 	 * @since 2.0.0
+	 * @since 2.1.6 Changed main action.
 	 *
 	 * @access public
 	 * @param  string $file Main plugin file.
@@ -121,19 +123,21 @@ final class Nav_Menu_Collapse extends Nav_Menu_Collapse_Wrapper
 		{
 			$this->plugin = $file;
 
-			add_action('plugins_loaded', array($this, 'plugins_loaded'));
+			add_action('init', array($this, 'init'));
 		}
 	}
 
+
 	/**
-	 * Load the plugin functionality.
+	 * Initialize the plugin.
 	 *
 	 * @since 2.0.0
+	 * @since 2.1.6 Moved functionality from plugins loaded function.
 	 *
 	 * @access public
 	 * @return void
 	 */
-	public function plugins_loaded()
+	public function init()
 	{
 		if (Nav_Menu_Collapse_Plugins::check_version('noakes-menu-manager/noakes-menu-manager.php', '3.0.0', '<'))
 		{
@@ -151,6 +155,8 @@ final class Nav_Menu_Collapse extends Nav_Menu_Collapse_Wrapper
 		}
 		
 		add_filter('plugin_row_meta', array($this, 'plugin_row_meta'), 10, 2);
+		
+		load_plugin_textdomain('nav-menu-collapse', false, dirname(plugin_basename($this->plugin)) . '/languages/');
 	}
 
 	/**
@@ -165,22 +171,9 @@ final class Nav_Menu_Collapse extends Nav_Menu_Collapse_Wrapper
 	 */
 	public function plugin_action_links($links)
 	{
-		array_unshift($links, '<a class="thickbox open-plugin-details-modal" data-title="' . esc_attr__('Nav Menu Manager', 'iem-clients-plus') . '" href="' . admin_url('plugin-install.php?tab=plugin-information&plugin=noakes-menu-manager&TB_iframe=true&width=772&height=871') . '">' . __('Update Nav Menu Manager', 'nav-menu-collapse') . '</a>');
+		array_unshift($links, '<a class="thickbox open-plugin-details-modal" data-title="' . esc_attr__('Nav Menu Manager', 'nav-menu-collapse') . '" href="' . admin_url('plugin-install.php?tab=plugin-information&plugin=noakes-menu-manager&TB_iframe=true&width=772&height=871') . '">' . __('Update Nav Menu Manager', 'nav-menu-collapse') . '</a>');
 
 		return $links;
-	}
-
-	/**
-	 * Initialize the plugin.
-	 *
-	 * @since 2.0.0
-	 *
-	 * @access public
-	 * @return void
-	 */
-	public function init()
-	{
-		load_plugin_textdomain('nav-menu-collapse', false, dirname(plugin_basename($this->plugin)) . '/languages/');
 	}
 
 	/**

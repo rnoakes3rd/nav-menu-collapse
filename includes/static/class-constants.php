@@ -46,8 +46,8 @@ final class Nav_Menu_Collapse_Constants
 	 *
 	 * @var string
 	 */
-	const VERSION = '2.1.5';
-	const VERSION_PREVIOUS = '2.1.4';
+	const VERSION = '2.1.6';
+	const VERSION_PREVIOUS = '2.1.5';
 	
 	/**
 	 * Plugin hook names.
