@@ -3,7 +3,7 @@
  * Plugin Name: Nav Menu Collapse
  * Plugin URI:  https://wordpress.org/plugins/nav-menu-collapse/
  * Description: Adds functionality to collapse and expand nav menus within the WordPress admin.
- * Version:     2.1.4
+ * Version:     2.1.5
  * Author:      Robert Noakes
  * Author URI:  https://robertnoakes.com/
  * Text Domain: nav-menu-collapse
